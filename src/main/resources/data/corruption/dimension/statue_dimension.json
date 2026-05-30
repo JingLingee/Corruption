@@ -1,0 +1,16 @@
+{
+  "type": "corruption:statue_dimension",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [
+        { "block": "minecraft:bedrock", "height": 1 },
+        { "block": "corruption:statue_block", "height": 3 }
+      ],
+      "biome": "minecraft:the_void",
+      "structures": {
+        "structures": {}
+      }
+    }
+  }
+}

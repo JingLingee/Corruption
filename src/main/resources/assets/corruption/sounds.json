@@ -1,0 +1,29 @@
+{
+  "whisper": {
+    "subtitle": "corruption.whisper",
+    "sounds": [
+      {
+        "name": "corruption:whisper",
+        "stream": false
+      }
+    ]
+  },
+  "watcher_heartbeat": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "corruption:watcher_heartbeat",
+        "stream": false
+      }
+    ]
+  },
+  "wanderer_staring": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "corruption:wanderer_staring",
+        "stream": false
+      }
+    ]
+  }
+}

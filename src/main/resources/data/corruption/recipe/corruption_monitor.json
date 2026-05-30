@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "# #",
+    "iGi",
+    "AAA"
+  ],
+  "key": {
+    "#": { "item": "minecraft:redstone_torch" },
+    "i": { "item": "minecraft:iron_ingot" },
+    "G": { "item": "minecraft:glass" },
+    "A": { "item": "minecraft:andesite" }
+  },
+  "result": {
+    "id": "corruption:corruption_monitor",
+    "count": 1
+  }
+}

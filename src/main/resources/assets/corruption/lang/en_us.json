@@ -1,0 +1,16 @@
+{
+  "itemGroup.corruption": "Corruption",
+  "subtitles.corruption.whisper": "A distant whisper...",
+  "subtitles.corruption.the_other_possess": "I'm here",
+  "messages.corruption.quiet": "The world is still quiet..",
+  "messages.corruption.out_possession": "You feel like yourself again",
+  "messages.corruption.helper.first_join1": "<Helper> Hello! This world is infected, so I'll show you how to get rid of the corruption.",
+  "messages.corruption.helper.first_join2": "<Helper> Firstly, You should make 'Corruption Monitor'",
+  "block.corruption.statue_block": "Statue Block",
+  "block.corruption.return_block": "Return",
+  "block.corruption.corrupted_block": "§kcorrupted",
+  "item.corruption.corruption_monitor": "Corruption Monitor",
+  "item.corruption.statue_block": "Statue Block",
+  "item.corruption.return_block": "Return",
+  "item.corruption.corrupted_block": "§kcorrupted"
+}

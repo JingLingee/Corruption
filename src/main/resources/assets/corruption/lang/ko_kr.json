@@ -1,0 +1,14 @@
+{
+  "itemGroup.corruption": "오염",
+  "subtitles.corruption.whisper": "속삭임이 들린다.",
+  "subtitles.corruption.the_other_possess": "나야.",
+  "messages.corruption.quiet": "세계는 아직 조용합니다..",
+  "messages.corruption.out_possession": "다시 당신 자신으로 돌아왔습니다.",
+  "block.corruption.statue_block": "석상 블록",
+  "block.corruption.return_block": "반환",
+  "block.corruption.corrupted_block": "§k오염된",
+  "item.corruption.statue_block": "석상 블록",
+  "item.corruption.return_block": "반환",
+  "item.corruption.corruption_monitor": "오염 측정기",
+  "item.corruption.corrupted_block": "§k오염된"
+}

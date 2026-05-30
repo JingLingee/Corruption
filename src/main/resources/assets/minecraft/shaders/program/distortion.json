@@ -1,0 +1,15 @@
+{
+  "vertex": "distortion",
+  "fragment": "distortion",
+  "samplers": [
+    { "name": "DiffuseSampler" }
+  ],
+  "attributes": [
+    "Position",
+    "UV0"
+  ],
+  "uniforms": [
+    { "name": "GameTime", "type": "float", "count": 1, "values": [ 0.0 ] },
+    { "name": "Intensity", "type": "float", "count": 1, "values": [ 0.0 ] }
+  ]
+}

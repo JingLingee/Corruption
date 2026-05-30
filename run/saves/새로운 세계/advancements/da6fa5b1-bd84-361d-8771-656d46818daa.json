@@ -1,0 +1,29 @@
+{
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2026-02-24 12:46:17 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/misc/firework_rocket_simple": {
+    "criteria": {
+      "has_gunpowder": "2026-02-24 12:46:17 +0900"
+    },
+    "done": true
+  },
+  "minecraft:recipes/redstone/tnt": {
+    "criteria": {
+      "has_gunpowder": "2026-02-24 12:46:17 +0900"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:sparse_jungle": "2026-02-24 12:47:22 +0900",
+      "minecraft:river": "2026-02-24 12:46:18 +0900",
+      "minecraft:plains": "2026-02-24 12:46:23 +0900"
+    },
+    "done": false
+  },
+  "DataVersion": 3955
+}

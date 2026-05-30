@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "corruption",
+  "version": "${version}",
+  "name": "Corruption",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/corruption/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.Mods.corruption.client.CorruptionDataGenerator"
+    ],
+    "client": [
+      "com.Mods.corruption.client.CorruptionClient"
+    ],
+    "main": [
+      "com.Mods.corruption.Corruption"
+    ]
+  },
+  "mixins": [
+    "corruption.mixins.json",
+    {
+      "config": "corruption.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
