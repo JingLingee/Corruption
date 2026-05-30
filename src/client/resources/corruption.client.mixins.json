@@ -9,7 +9,8 @@
     "JsonEffectShaderProgramAccessor",
     "PostEffectPassAccessor",
     "PostEffectProcessorAccessor",
-    "PressableWidgetMixin"
+    "PressableWidgetMixin",
+    "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

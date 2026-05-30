@@ -3,10 +3,11 @@ package com.Mods.corruption.client.network;
 import com.Mods.corruption.client.overlay.DistortionRenderer;
 import com.Mods.corruption.client.overlay.NoiseOverlayRenderer;
 import com.Mods.corruption.client.overlay.ScreenOverlayRenderer;
+import com.Mods.corruption.client.screen.FakeDisconnectScreen;
 import com.Mods.corruption.client.shader.DistortionShaderManager;
-import com.Mods.corruption.client.system.OffFullScreenMode;
-import com.Mods.corruption.client.system.SearchStringInBrowser;
+import com.Mods.corruption.client.system.*;
 import com.Mods.corruption.network.CorruptionNetworking;
+import com.Mods.corruption.network.packet.*;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.text.Text;
 import org.apache.logging.log4j.LogManager;
@@ -88,5 +89,33 @@ public class ClientNetworking {
                     });
                 }
         );
+
+        ClientPlayNetworking.registerGlobalReceiver(
+                CorruptionSyncPayload.ID, (payload, context) -> {
+                    context.client().execute(() -> {
+                        ClientCorruptionState.setCorruptionPercent(payload.percent());
+                        context.client().updateWindowTitle();
+                    });
+                }
+        );
+
+        ClientPlayNetworking.registerGlobalReceiver(FakeCrashPayload.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                context.client().setScreen(new FakeDisconnectScreen());
+            });
+        });
+
+        ClientPlayNetworking.registerGlobalReceiver(StalkerFootstepPayload.ID, (payload, context) -> {
+            context.client().execute(StalkerSoundManager::start);
+        });
+
+
+        ClientPlayNetworking.registerGlobalReceiver(WandererJumpscarePayload.ID, (payload, context) -> {
+            context.client().execute(WindowShakeManager::startShake);
+        });
+
+        ClientPlayNetworking.registerGlobalReceiver(ChangeWallpaperPayload.ID, (payload, context) -> {
+            context.client().execute(WallpaperManager::changeWallpaper);
+        });
     }
 }

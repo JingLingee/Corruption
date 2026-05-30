@@ -11,6 +11,8 @@ import com.Mods.corruption.client.renderer.TheOtherRenderer;
 import com.Mods.corruption.client.renderer.WandererRenderer;
 import com.Mods.corruption.client.renderer.WatcherRenderer;
 import com.Mods.corruption.client.shader.DistortionShaderManager;
+import com.Mods.corruption.client.system.StalkerSoundManager;
+import com.Mods.corruption.client.system.WindowShakeManager;
 import com.Mods.corruption.entity.CorruptionEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -32,6 +34,8 @@ public class CorruptionClient implements ClientModInitializer {
         NoiseOverlayRenderer.init();
         DistortionRenderer.register();
         ScreenOverlayRenderer.register();
+        StalkerSoundManager.register();
+        WindowShakeManager.register();
 
         ClientTickEvents.START_CLIENT_TICK.register(client -> {
             if (client.player == null) return;

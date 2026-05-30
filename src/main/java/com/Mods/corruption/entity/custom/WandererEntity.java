@@ -1,8 +1,10 @@
 package com.Mods.corruption.entity.custom;
 
 import com.Mods.corruption.network.CorruptionNetworking;
+import com.Mods.corruption.network.packet.WandererJumpscarePayload;
 import com.Mods.corruption.sound.ModSounds;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.control.FlightMoveControl;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
@@ -105,6 +107,8 @@ public class WandererEntity extends FlyingEntity implements GeoEntity {
                 yaw,
                 pitch
         );
+
+        ServerPlayNetworking.send(sp, new WandererJumpscarePayload());
     }
 
     // =======================

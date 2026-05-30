@@ -1,7 +1,9 @@
 package com.Mods.corruption.server;
 
+import com.Mods.corruption.network.packet.CorruptionSyncPayload;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -30,6 +32,8 @@ public class CorruptionTicker {
                 player.sendMessage(Text.translatable("messages.corruption.helper.first_join1"), false);
                 player.sendMessage(Text.translatable("messages.corruption.helper.first_join2"), false);
             }
+
+            ServerPlayNetworking.send(player, new CorruptionSyncPayload(state.getCorruptionPercent()));
         });
         ServerTickEvents.START_SERVER_TICK.register(server -> {
 
@@ -52,6 +56,19 @@ public class CorruptionTicker {
                 state.setCorruptionPercent(newValue);
                 state.markDirty();
                 System.out.println("Corruption increased to: " + newValue + "%");
+
+                if (newValue >= 5.0f && current < 5.0f) {
+                    for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+                        player.sendMessage(Text.translatable("messages.corruption.helper.monitor_recipe1"), false);
+                        player.sendMessage(Text.translatable("messages.corruption.helper.monitor_recipe2"), false);
+                        player.sendMessage(Text.translatable("messages.corruption.helper.monitor_recipe3"), false);
+
+                    }
+                }
+
+                for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+                    ServerPlayNetworking.send(player, new CorruptionSyncPayload(newValue));
+                }
             }
 
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {

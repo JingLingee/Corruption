@@ -1,5 +1,6 @@
 package com.Mods.corruption.network;
 
+import com.Mods.corruption.network.packet.*;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.RegistryByteBuf;
@@ -145,6 +146,11 @@ public class CorruptionNetworking {
         PayloadTypeRegistry.playS2C().register(OverlayPayload.ID, OverlayPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(PossessionPayload.ID, PossessionPayload.CODEC);
         PayloadTypeRegistry.playS2C().register(DistortionPayload.ID, DistortionPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(CorruptionSyncPayload.ID, CorruptionSyncPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(FakeCrashPayload.ID, FakeCrashPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(StalkerFootstepPayload.ID, StalkerFootstepPayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(WandererJumpscarePayload.ID, WandererJumpscarePayload.CODEC);
+        PayloadTypeRegistry.playS2C().register(ChangeWallpaperPayload.ID, ChangeWallpaperPayload.CODEC);
     }
 
     // ===== 서버 → 클라이언트 전송 =====

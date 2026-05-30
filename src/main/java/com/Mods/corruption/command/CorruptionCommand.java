@@ -1,13 +1,16 @@
 package com.Mods.corruption.command;
 
 import com.Mods.corruption.event.CorruptionEventManager;
+import com.Mods.corruption.network.packet.CorruptionSyncPayload;
 import com.Mods.corruption.server.CorruptionState;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
@@ -37,6 +40,10 @@ public class CorruptionCommand {
                                                             + value + "%"),
                                             true
                                     );
+
+                                    for (ServerPlayerEntity player : world.getServer().getPlayerManager().getPlayerList()) {
+                                        ServerPlayNetworking.send(player, new CorruptionSyncPayload(value));
+                                    }
 
                                     return 1;
                                 })

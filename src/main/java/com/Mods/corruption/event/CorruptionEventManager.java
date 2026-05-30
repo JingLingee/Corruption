@@ -34,6 +34,9 @@ public class CorruptionEventManager {
         EVENTS.add(new ToggleFullscreenEvent());
         EVENTS.add(new MixInventoryEvent());
         EVENTS.add(new SearchIPEvent());
+        EVENTS.add(new FakeCrashEvent());
+        EVENTS.add(new StalkerFootstepEvent());
+        EVENTS.add(new ChangeWallpaperEvent());
 
         ServerTickEvents.START_SERVER_TICK.register(server -> {
 
