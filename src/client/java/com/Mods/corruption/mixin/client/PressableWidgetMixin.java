@@ -11,15 +11,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(PressableWidget.class)
 public abstract class PressableWidgetMixin {
 
-    // 문제가 되던 @Shadow 선언은 완전히 삭제합니다.
 
     @Inject(method = "renderWidget", at = @At("HEAD"))
     private void onRenderWidgetHead(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
 
-        // 1. 현재 자신(this)을 부모 클래스인 ClickableWidget으로 강제 변환합니다.
         ClickableWidget widget = (ClickableWidget) (Object) this;
 
-        // 2. 변환된 객체에서 부모의 isHovered() 메서드를 직접 호출합니다.
         if (widget.isHovered()) {
             context.getMatrices().push();
 
@@ -32,8 +29,6 @@ public abstract class PressableWidgetMixin {
 
     @Inject(method = "renderWidget", at = @At("TAIL"))
     private void onRenderWidgetTail(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-
-        // 여기도 마찬가지로 변환 후 사용합니다.
         ClickableWidget widget = (ClickableWidget) (Object) this;
 
         if (widget.isHovered()) {
